@@ -13,7 +13,7 @@ Check out what [this app](http://emmaloto.42web.io/lotoapps/urlTitle/) does! I m
 - [ ] PHP grabs title...and then too much!
 
 ## 🕓 Multiple Date Formats Table
-I wanted to be able to easily copy dates in different formats so that I could do things like  append to file names or use as IDs and other things like that. [This application](http://emmaloto.42web.io/lotoapps/timeFormats/) creates a list of different date formats for easy copying and use.
+I wanted to be able to easily copy dates in different formats so that I could do things like append to file names or use as IDs. [This application](http://emmaloto.42web.io/lotoapps/timeFormats/) creates a list of different date formats for easy copying and use.
 
 #### Things to Fix
 - [ ] Cleaner date picker
