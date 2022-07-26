@@ -77,7 +77,7 @@ function fillTable(table, tableData){
     cellVal.innerHTML = "<b> " + formatEntry.date + " </b>"; // formatEntry.dateTime()
     
 
-}
+  }
 }
 
 // ---------- SETTING TABLE DATA ----------
@@ -140,15 +140,15 @@ function setSeparator(){
 		if(radioBtn.checked == true){
             // console.log("New: " + radioBtn.value + "|| Old: "+ separator);
             newDivider = radioBtn.value;
+          }
         }
-    }
 
-    replaceSeparator(allTimeFormats, newDivider);
+        replaceSeparator(allTimeFormats, newDivider);
 
-}
+      }
 
-function setCustomSeparator(){
-	var customSep = document.getElementById("customSepInput").value;
+      function setCustomSeparator(){
+      	var customSep = document.getElementById("customSepInput").value;
 	// Possibly some input checks
 	// NO numbers
 
