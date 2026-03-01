@@ -1,24 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8" />
   <title>Transaction Classifier</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- https://bulma.io/documentation/elements/file/ -->
 </head>
+
 <body>
 
-<section class="section">
-  <div class="container">
-    <h2 class="title">Transaction Classifier</h2>
+  <section class="section">
+    <div class="container">
+      <h2 class="title">Transaction Classifier</h2>
 
-    <div class="columns">
-      <div class="column">
-        <label class="label">Upload Category Mapping CSV</label>
-        <input type="file" id="mappingFile" class="file-input" accept=".csv">
+      <div class="box">
+        
+      
+
+      <div class="file has-name is-boxed is-info is-centered is-fullwidth block" id="csv-upload-1">
+        <label class="file-label">
+          <input class="file-input" type="file" name="category_mapping_file" id="category_mapping_file" />
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label"> Upload Keyword CSV File </span>
+          </span>
+          <span class="file-name" id="categoryMappingFileName">No file selected</span>
+        </label>
       </div>
-    </div>
 
-    <div class="columns">
+      <div class="file has-name is-boxed is-primary is-centered is-fullwidth block" id="csv-upload-2">
+        <label class="file-label">
+          <input class="file-input" type="file" name="transactions_file" id="transactions_file" />
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label"> Upload Transactions CSV File </span>
+          </span>
+          <span class="file-name" id="transactionsFileName">No file selected</span>
+        </label>
+      </div>
+
+
+
+      <!-- <div class="columns">
       <div class="column">
         <label class="label">Upload Transactions CSV</label>
         <input type="file" id="transactionsFile" class="file-input" accept=".csv">
@@ -33,27 +61,30 @@
         <label class="label">Has Headers:</label>
         <input type="checkbox" id="hasHeaders" class="checkbox" checked>
       </div>
-    </div>
+    </div> -->
 
-    <div class="columns">
-      <div class="column">
-        <button class="button is-primary" onclick="processFiles()">Classify</button>
-      </div>
-    </div>
-
-    <div class="columns">
-      <div class="column">
-        <div id="result" class="content"></div>
+      <div class="columns">
+        <div class="column block">
+          <button class="button is-primary" onclick="processFiles()">Classify</button>
+        </div>
       </div>
 
-      <div class="column">
-        <div id="todo" class="content"></div>
+      <div class="columns">
+        <div class="column">
+          <div id="result" class="content"></div>
+        </div>
+
+        <div class="column">
+          <div id="todo" class="content"></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+    </div>
+  </section>
 
-<script src="js/app.js"></script>
-<script src="js/styles.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/drag-drop-file-uploader.js"></script>
+  <!-- <script src="js/styles.js"></script> -->
 </body>
+
 </html>

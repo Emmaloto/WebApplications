@@ -88,20 +88,20 @@ async function processFiles() {
   const outputCSV = toCSV(transactionRows);
   downloadCSV(outputCSV, "classified_transactions.csv");
 
-  // Display information about the uploaded files and classified transactions
-  const fileSize = transactionsFile.size;
-  const rows = transactionRows.length;
-  const classifiedRows = transactionRows.filter(row => row[nameIndex + 1] !== "").length;
-  const categoryCounts = transactionRows.reduce((counts, row) => {
-    const category = row[nameIndex + 1];
-    counts[category] = (counts[category] || 0) + 1;
-    return counts;
-  }, {});
-  const info = document.getElementById("info");
-  info.innerHTML = `<p>File size: ${fileSize} bytes</p>
-                    <p>Number of rows: ${rows}</p>
-                    <p>Number of classified rows: ${classifiedRows}</p>
-                    <p>Category counts: ${JSON.stringify(categoryCounts)}</p>`;  
+//   // Display information about the uploaded files and classified transactions
+//   const fileSize = transactionsFile.size;
+//   const rows = transactionRows.length;
+//   const classifiedRows = transactionRows.filter(row => row[nameIndex + 1] !== "").length;
+//   const categoryCounts = transactionRows.reduce((counts, row) => {
+//     const category = row[nameIndex + 1];
+//     counts[category] = (counts[category] || 0) + 1;
+//     return counts;
+//   }, {});
+//   const info = document.getElementById("info");
+//   info.innerHTML = `<p>File size: ${fileSize} bytes</p>
+//                     <p>Number of rows: ${rows}</p>
+//                     <p>Number of classified rows: ${classifiedRows}</p>
+//                     <p>Category counts: ${JSON.stringify(categoryCounts)}</p>`;  
 
 
 }
