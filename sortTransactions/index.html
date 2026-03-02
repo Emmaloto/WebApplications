@@ -3,96 +3,97 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Transaction Classifier</title>
+  <title>Transaction CSV Classifier</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <!-- https://bulma.io/documentation/elements/file/ -->
+  <link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body>
 
   <section class="section">
     <div class="container">
-      <h2 class="title">Transaction Classifier</h2>
+      <h1 class="title has-text-centered">Transaction CSV Classifier</h1>
 
       <div class="box">
 
+        <!-- Mapping Upload -->
+        <div class="box has-background-info-light">
+          <h2 class="subtitle has-text-info"
+            data-tooltip="CSV with two columns mapping Category (col 1) to Keyword (col 2). Example: Shopping, dollar">
+            Category Mapping CSV</h2>
 
-
-        <div class="file has-name is-boxed is-info is-centered is-fullwidth block">
-          <label class="file-label">
-            <input class="file-input" type="file" name="category_mapping_file" id="category_mapping_file" />
-            <span class="file-cta">
-              <span class="file-icon">
-                <i class="fas fa-upload"></i>
+          <div class="file is-boxed is-fullwidth is-info">
+            <label class="file-label">
+              <input class="file-input" type="file" id="mappingFile" accept=".csv">
+              <span class="file-cta">
+                <span class="file-label">Choose mapping file</span>
               </span>
-              <span class="file-label"> Upload Keyword CSV File </span>
-            </span>
-            <span class="file-name" id="categoryMappingFileName">No file selected</span>
-          </label>
+            </label>
+          </div>
 
-
+          <div id="mappingInfo" class="notification is-info is-light is-hidden mt-3">
+          </div>
         </div>
-        <div id="fileSizeInfo" class="notification"></div>
 
+        <!-- Transaction Upload -->
 
+        <div class="box has-background-primary-light mt-5">
+          <h2 class="subtitle has-text-primary"
+            data-tooltip="CSV of transactions. Select the column containing the transaction description below. A new Category column will be added to the output.">
+            Transaction CSV</h2>
 
-        <div class="file has-name is-boxed is-primary is-centered is-fullwidth block">
-          <label class="file-label">
-            <input class="file-input" type="file" name="transactions_file" id="transactions_file" />
-            <span class="file-cta">
-              <span class="file-icon">
-                <i class="fas fa-upload"></i>
+          <div class="file is-boxed is-fullwidth is-primary">
+            <label class="file-label">
+              <input class="file-input" type="file" id="transactionFile" accept=".csv">
+              <span class="file-cta">
+                <span class="file-label">Choose transactions file</span>
               </span>
-              <span class="file-label"> Upload Transactions CSV File </span>
-            </span>
-            <span class="file-name" id="transactionsFileName">No file selected</span>
-          </label>
-        </div>
+            </label>
+          </div>
 
-        <div id="fileSizeInfo" class="notification"></div>
-
-
-
-        <!-- <div class="columns">
-      <div class="column">
-        <label class="label">Upload Transactions CSV</label>
-        <input type="file" id="transactionsFile" class="file-input" accept=".csv">
-      </div>
-
-      <div class="column">
-        <label class="label">Column Number containing description/name:</label>
-        <input type="number" id="columnNumber" class="input" min="1" value="2">
-      </div>
-
-      <div class="column">
-        <label class="label">Has Headers:</label>
-        <input type="checkbox" id="hasHeaders" class="checkbox" checked>
-      </div>
-    </div> -->
-
-        <div class="columns">
-          <div class="column block">
-            <button class="button is-primary" onclick="processFiles()">Classify</button>
+          <div id="transactionInfo" class="notification is-primary is-light is-hidden mt-3">
           </div>
         </div>
 
-        <div class="columns">
-          <div class="column">
-            <div id="result" class="content"></div>
+        <!-- Options Panel (hidden until transaction file uploaded) -->
+        <div id="optionsPanel" class="box is-hidden mt-5 has-background-grey-lighter">
+          <h2 class="subtitle">Transaction Settings</h2>
+
+          <div class="field">
+            <label class="label"> Column Number with Description (starts at 1)</label>
+            <div class="control">
+              <input id="columnNumber" class="input" type="number" value="2" min="1">
+            </div>
           </div>
 
-          <div class="column">
-            <div id="todo" class="content"></div>
+          <div class="field">
+            <label class="checkbox">
+              <input type="checkbox" id="hasHeaders" checked>
+              CSV contains headers
+            </label>
           </div>
         </div>
+
+        <!-- Progress -->
+        <progress id="progressBar" class="progress is-primary is-hidden" max="100">
+        </progress>
+        <div class="field mt-5">
+          <button id="classifyBtn" class="button is-success is-fullwidth">
+            Classify Transactions
+          </button>
+        </div>
+
+        <div id="classificationSummary" class="notification is-success is-light is-hidden"></div>
+
       </div>
     </div>
   </section>
 
-  <script src="js/app.js"></script>
-  <script src="js/drag-drop-file-uploader.js"></script>
-  <!-- <script src="js/styles.js"></script> -->
-  <script src="js/showSize.js"></script>
+  <script src="js/csvUtils.js"></script>
+  <script src="js/fileInfo.js"></script>
+  <script src="js/classifier.js"></script>
+  <script src="js/main.js"></script>
+
 </body>
 
 </html>
