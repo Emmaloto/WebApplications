@@ -80,10 +80,12 @@ function fillTable(table, tableData) {
 		// Copy button
 		let cellCopy = row.insertCell();
 		let copyButton = document.createElement('button');
-		copyButton.className = "btn btn-primary";
+		copyButton.className = "btn btn-outline-info";
 		copyButton.innerHTML = "Copy";
 		copyButton.type = "button";
-		copyButton.onclick = formatEntry.copyDate;
+		copyButton.addEventListener('click', function () {
+			navigator.clipboard.writeText(formatEntry.date);
+		});
 		cellCopy.appendChild(copyButton);
 	}
 }
