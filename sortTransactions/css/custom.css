@@ -1,0 +1,11 @@
+body {
+  background: #f5f7fa;
+}
+
+.box {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.notification {
+  margin-top: 1rem;
+}
